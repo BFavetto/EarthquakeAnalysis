@@ -1,0 +1,30 @@
+Package: EarthquakeAnalysis
+Title: Earthquake analysis based on NOAA data
+Version: 0.0.1
+Authors@R: 
+    person("Benjamin", "Favetto", , "benjamin.favetto@gmail.com", role = c("aut", "cre"))
+Description: Mastering Software Development in R Capstone. This package
+    provides useful functions for Earthquake Analysis.
+License: GPL (>= 3)
+Imports: 
+    dplyr,
+    ggplot2,
+    grid,
+    leaflet,
+    lubridate,
+    magrittr,
+    purrr,
+    readr,
+    stringr,
+    tidyr
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Depends: 
+    R (>= 2.10)
+LazyData: true

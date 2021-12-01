@@ -1,0 +1,38 @@
+---
+title: "Tools for earthquake analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tools for earthquake analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+This package handles the dataset about earthquakes provided by the [U.S. National Oceanographic and Atmospheric Administration (NOAA)](https://www.ngdc.noaa.gov/). It is made for educational purpose, as the final assignment of the Coursera MSDR Capstone project. 
+
+# Install the package
+
+```{r setup}
+# library(devtools)
+# install_github("bfavetto/earthquakes")
+# library(EarthquakeAnalysis)
+```
+
+
+```{r loadcleandata}
+# dataset <- load_raw_dataset()
+# View(dataset)
+# dataclean1 <- eq_clean_data(dataset)
+# View(datalclean1)
+# dataclean2 <- eq_location_clean(dataclean1)
+# View(datalclean2)
+```
+
