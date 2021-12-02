@@ -33,7 +33,7 @@ library(dplyr)
 
 ```{r loadcleandata}
 # to load the data from the package
-data(NOAAdata)
+data("NOAAdata")
 
 dataclean1 <- eq_clean_data(NOAAdata)
 View(dataclean1)
