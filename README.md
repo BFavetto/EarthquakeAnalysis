@@ -18,8 +18,12 @@ significant earthquakes around the world.
 You can install the development version of EarthquakeAnalysis like so:
 
 ``` r
-# library(devtools)
-# install_github("BFavetto/earthquakes")
+library(devtools)
+#> Le chargement a nécessité le package : usethis
+install_github("BFavetto/EarthquakeAnalysis")
+#> Skipping install of 'EarthquakeAnalysis' from a github remote, the SHA1 (68c14cd3) has not changed since last install.
+#>   Use `force = TRUE` to force installation
+library(EarthquakeAnalysis)
 ```
 
 ## Example

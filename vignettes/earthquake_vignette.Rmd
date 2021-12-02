@@ -21,18 +21,32 @@ This package handles the dataset about earthquakes provided by the [U.S. Nationa
 # Install the package
 
 ```{r setup}
-# library(devtools)
-# install_github("bfavetto/earthquakes")
-# library(EarthquakeAnalysis)
+library(devtools)
+install_github("BFavetto/EarthquakeAnalysis")
+library(EarthquakeAnalysis)
+
+library(ggplot2)
+library(dplyr)
+```
+
+# Load and clean the NOAA dataset
+
+```{r loadcleandata}
+# to load the data from the package
+data(NOAAdata)
+
+dataclean1 <- eq_clean_data(NOAAdata)
+View(dataclean1)
+dataclean2 <- eq_location_clean(dataclean1)
+View(dataclean2)
 ```
 
 
-```{r loadcleandata}
-# dataset <- load_raw_dataset()
-# View(dataset)
-# dataclean1 <- eq_clean_data(dataset)
-# View(datalclean1)
-# dataclean2 <- eq_location_clean(dataclean1)
-# View(datalclean2)
+```{r}
+dataclean2 %>% filter((Year > 2010) &  (Country =="INDIA")) %>%
+ggplot(  aes(x = Date,
+           y = Country,
+           color = Deaths,
+           size = Mag)) + geom_timeline(alpha = 0.2)
 ```
 
