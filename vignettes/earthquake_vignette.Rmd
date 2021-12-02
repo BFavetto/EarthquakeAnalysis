@@ -27,9 +27,13 @@ library(EarthquakeAnalysis)
 
 library(ggplot2)
 library(dplyr)
+library(tidyr)
+library(lubridate)
 ```
 
 # Load and clean the NOAA dataset
+
+If there are several countries, a time line is plotted for each.
 
 ```{r loadcleandata}
 # to load the data from the package
@@ -42,11 +46,34 @@ View(dataclean2)
 ```
 
 
-```{r}
+# Plot a time line for earthquakes 
+
+```{r plotimeline}
 dataclean2 %>% filter((Year > 2010) &  (Country =="INDIA")) %>%
 ggplot(  aes(x = Date,
            y = Country,
            color = Deaths,
            size = Mag)) + geom_timeline(alpha = 0.2)
+```
+
+
+# Plot a time line with labels
+
+```{r}
+dataclean2 %>% filter(Country %in% c("MEXICO", "IRAN") &
+                      Date %within% interval(ymd(20000103),
+                                                    ymd(20180104))) %>%
+               mutate(Country = factor(Country, levels = unique(Country))) %>%
+               ggplot() +
+                    geom_timeline_label(aes(x = Date,
+                                            y = Country,
+                                            label = Location,
+                                            magnitude = Mag,
+                                            colour = Deaths,
+                                            n_max = 7), alpha = 0.5) +
+                               scale_colour_continuous(name = "Nb. of deaths") +
+                               theme(legend.position = "bottom") +
+                               ylab("")
+
 ```
 

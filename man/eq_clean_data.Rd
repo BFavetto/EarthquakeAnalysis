@@ -17,6 +17,6 @@ for the date, latitude and longitude converted to numeric)
 This function cleans and readies the NOAA dataset.
 }
 \examples{
-\dontrun{eq_clean_data(rawdataframe)}
+\dontrun{eq_clean_data(NOAAdata)}
 
 }

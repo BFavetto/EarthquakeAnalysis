@@ -17,6 +17,6 @@ Split the location / country field in two fields : one for the country
 and one for the location
 }
 \examples{
-\dontrun{eq_location_clean(rawdataset)}
+\dontrun{eq_location_clean(NOAAdata)}
 
 }
