@@ -19,10 +19,7 @@ You can install the development version of EarthquakeAnalysis like so:
 
 ``` r
 library(devtools)
-#> Le chargement a nécessité le package : usethis
 install_github("BFavetto/EarthquakeAnalysis")
-#> Skipping install of 'EarthquakeAnalysis' from a github remote, the SHA1 (68c14cd3) has not changed since last install.
-#>   Use `force = TRUE` to force installation
 library(EarthquakeAnalysis)
 ```
 
@@ -31,5 +28,14 @@ library(EarthquakeAnalysis)
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-## basic example code
+library(dplyr)
+library(ggplot2)
+
+data("NOAAdata")
+
+NOAAdata %>% eq_clean_data() %>%
+  eq_location_clean() %>%
+  filter(Country %in% "ITALY" &
+               lubridate::year(Date) >= 2000) %>%
+  eq_map(annot_col = "Date")
 ```
