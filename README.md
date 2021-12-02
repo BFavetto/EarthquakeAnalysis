@@ -25,12 +25,14 @@ library(EarthquakeAnalysis)
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to plot a map with recent
+earthquakes in Italy:
 
 ``` r
 library(dplyr)
 library(ggplot2)
 
+# load the dataset
 data("NOAAdata")
 
 NOAAdata %>% eq_clean_data() %>%
