@@ -20,15 +20,18 @@ This package handles the dataset about earthquakes provided by the [U.S. Nationa
 
 ## Install the package
 
-```{r setup}
-library(devtools)
-install_github("BFavetto/EarthquakeAnalysis")
-library(EarthquakeAnalysis)
-
+```{r loadlibraries}
 library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(lubridate)
+```
+
+
+```{r setup}
+library(devtools)
+install_github("BFavetto/EarthquakeAnalysis")
+library(EarthquakeAnalysis)
 ```
 
 ## Load and clean the NOAA dataset
