@@ -20,9 +20,10 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0),
     knitr,
-    rmarkdown
+    rmarkdown,
+    devtools
 VignetteBuilder: 
-    rmarkdown
+    knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
