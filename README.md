@@ -7,6 +7,7 @@
 
 [![Travis build
 status](https://travis-ci.com/BFavetto/EarthquakeAnalysis.svg?branch=main)](https://travis-ci.com/BFavetto/EarthquakeAnalysis)
+[![R-CMD-check](https://github.com/BFavetto/EarthquakeAnalysis/workflows/R-CMD-check/badge.svg)](https://github.com/BFavetto/EarthquakeAnalysis/actions)
 <!-- badges: end -->
 
 The goal of EarthquakeAnalysis is to complete the MSDR Capstone project
