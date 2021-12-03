@@ -14,11 +14,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Introduction
+## Introduction
 
 This package handles the dataset about earthquakes provided by the [U.S. National Oceanographic and Atmospheric Administration (NOAA)](https://www.ngdc.noaa.gov/). It is made for educational purpose, as the final assignment of the Coursera MSDR Capstone project. 
 
-# Install the package
+## Install the package
 
 ```{r setup}
 library(devtools)
@@ -31,22 +31,27 @@ library(tidyr)
 library(lubridate)
 ```
 
-# Load and clean the NOAA dataset
+## Load and clean the NOAA dataset
 
-If there are several countries, a time line is plotted for each.
+The data is inculded in the package and can be easily loaded.
 
 ```{r loadcleandata}
 # to load the data from the package
 data("NOAAdata")
 
 dataclean1 <- eq_clean_data(NOAAdata)
-View(dataclean1)
+# View(dataclean1)
 dataclean2 <- eq_location_clean(dataclean1)
-View(dataclean2)
+# View(dataclean2)
+
+head(dataclean2)
 ```
 
 
-# Plot a time line for earthquakes 
+## Plot a time line for earthquakes 
+
+A time line is plotted with  circles to date the earthquakes. The radii of the circles are proportional to the magnitude of the earthquakes.
+
 
 ```{r plotimeline}
 dataclean2 %>% filter((Year > 2010) &  (Country =="INDIA")) %>%
@@ -57,9 +62,11 @@ ggplot(  aes(x = Date,
 ```
 
 
-# Plot a time line with labels
+## Plot a time line with labels
 
-```{r}
+If there are several countries, a time line is plotted for each.
+
+```{r timelinelabels}
 dataclean2 %>% filter(Country %in% c("MEXICO", "IRAN") &
                       Date %within% interval(ymd(20000103),
                                                     ymd(20180104))) %>%
@@ -75,5 +82,26 @@ dataclean2 %>% filter(Country %in% c("MEXICO", "IRAN") &
                                theme(legend.position = "bottom") +
                                ylab("")
 
+```
+
+## Plot a map with locations and dates for earthquakes
+
+```{r leafletmap}
+
+dataclean2 %>%
+  filter(Country == "MEXICO" & year(Date) >= 2000) %>%
+  eq_map(annot_col = "Date")
+
+
+
+```
+
+A version with more information in the popup is available.
+
+```{r}
+dataclean2 %>%
+ filter(Country %in% c("HONDURAS", "MEXICO") & year(Date) >= 2000) %>%
+ mutate(popup_text = eq_create_label(.)) %>%
+ eq_map( annot_col = "popup_text")
 ```
 
