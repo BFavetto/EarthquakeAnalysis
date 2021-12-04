@@ -29,8 +29,8 @@ library(lubridate)
 
 
 ```{r setup}
-library(devtools)
-install_github("BFavetto/EarthquakeAnalysis")
+# library(devtools)
+# install_github("BFavetto/EarthquakeAnalysis")
 library(EarthquakeAnalysis)
 ```
 
